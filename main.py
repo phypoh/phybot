@@ -24,11 +24,16 @@ async def on_ready():
 async def hello():    
     await bot.say("Hola. <:wave:> ")
     
-#@bot.listen()
-
-@asyncio.coroutine
-def on_message(self, message):
+@bot.listen()
+async def on_message(message):
     if "rn" in message:
-        await self.bot.say("Right now! <:rn:> ")
+        await bot.say("Right now! <:rn:> ")
+        
+#==============================================================================
+# @asyncio.coroutine
+# def on_message(self, message):
+#     if "rn" in message:
+#         await self.bot.say("Right now! <:rn:> ")
+#==============================================================================
     
 bot.run(os.getenv('BOT_TOKEN'))
