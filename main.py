@@ -24,9 +24,9 @@ async def on_ready():
 async def hello():    
     await bot.say("Hola. :wave: ")
     
-@bot.event
+@bot.listen
 async def on_message(message):
-    if message.content.startswith('rn'):
+    if message.content.endswith('rn'):
         await bot.say('Right now! :rn:')
     await bot.process_commands(message)
         
