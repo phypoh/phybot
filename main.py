@@ -24,7 +24,7 @@ async def on_ready():
 async def hello():    
     await bot.say("Hola. :wave: ")
     
-@bot.event
+@bot.listen()
 async def on_message(message):
     if "rn" in message.content.split():
         await bot.say("Right now! :rn:")
