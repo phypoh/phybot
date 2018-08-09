@@ -22,12 +22,12 @@ async def on_ready():
     
 @bot.command()
 async def hello():    
-    await bot.say("Hola. <:wave:> ")
+    await bot.say("Hola. :wave: ")
     
-@bot.listen()
+@bot.event
 async def on_message(message):
-    if "rn" in message:
-        await bot.say("Right now! <:rn:> ")
+    if "rn" in message.content.split():
+        await bot.say("Right now! :rn:")
         
 #==============================================================================
 # @asyncio.coroutine
