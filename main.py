@@ -27,8 +27,8 @@ async def hello():
 @bot.event
 async def on_message(message):
     if message.content.startswith('rn'):
-        await bot.channel.send('Hello!')
-        await bot.process_commands(message)
+        await bot.say('Right now! :rn:')
+    await bot.process_commands(message)
         
 #==============================================================================
 # @asyncio.coroutine
