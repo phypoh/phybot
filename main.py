@@ -24,10 +24,11 @@ async def on_ready():
 async def hello():    
     await bot.say("Hola. :wave: ")
     
-@bot.listen()
+@bot.event
 async def on_message(message):
-    if "rn" in message.content.split():
-        await bot.say("Right now! :rn:")
+    if message.content.startswith('rn'):
+        await bot.channel.send('Hello!')
+        await bot.process_commands(message)
         
 #==============================================================================
 # @asyncio.coroutine
