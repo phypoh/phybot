@@ -23,13 +23,20 @@ async def on_ready():
 @bot.command()
 async def hello():    
     await bot.say("Hola. :wave: ")
+  
     
-@bot.listen
-async def on_message(message):
-    if message.content.endswith('rn'):
-        await bot.say('Right now! :rn:')
-    await bot.process_commands(message)
-        
+@bot.command()
+async def rn():    
+    await bot.say("Right now! :rn: ")
+    
+#==============================================================================
+# @bot.listen
+# async def on_message(message):
+#     if message.content.endswith('rn'):
+#         await bot.say('Right now! :rn:')
+#     await bot.process_commands(message)
+#         
+#==============================================================================
 #==============================================================================
 # @asyncio.coroutine
 # def on_message(self, message):
