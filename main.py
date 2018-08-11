@@ -27,9 +27,7 @@ async def hello():
     
 @bot.command()
 async def rn():    
-    emoji = bot.get_emoji(440727873196916737)
-    await bot.say("Right now!")
-    await bot.say(emoji)
+    await bot.say("Right now! :point_down:")
     
     
 #==============================================================================
@@ -38,19 +36,5 @@ async def rn():
 #     await bot.say("Don't quit! <:440727873196916737:> ")
 #==============================================================================
 
-#==============================================================================
-# @bot.listen
-# async def on_message(message):
-#     if message.content.endswith('rn'):
-#         await bot.say('Right now! :rn:')
-#     await bot.process_commands(message)
-#         
-#==============================================================================
-#==============================================================================
-# @asyncio.coroutine
-# def on_message(self, message):
-#     if "rn" in message:
-#         await self.bot.say("Right now! <:rn:> ")
-#==============================================================================
     
 bot.run(os.getenv('BOT_TOKEN'))
