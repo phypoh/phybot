@@ -27,7 +27,9 @@ async def hello():
     
 @bot.command()
 async def rn():    
-    await bot.say("Right now! <:rn:440727873196916737> ")
+    emoji = bot.get_emoji(440727873196916737)
+    await bot.say("Right now!")
+    await bot.say(emoji)
     
     
 #==============================================================================
