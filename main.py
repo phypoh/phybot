@@ -29,12 +29,9 @@ async def hello():
 async def rn():    
     await bot.say("Right now! :point_down:")
     
-    
-#==============================================================================
-# @bot.command()
-# async def rn():    
-#     await bot.say("Don't quit! <:440727873196916737:> ")
-#==============================================================================
 
+@bot.command()
+async def quit():    
+    await bot.say("No. Write your paper :point_down:")
     
 bot.run(os.getenv('BOT_TOKEN'))
