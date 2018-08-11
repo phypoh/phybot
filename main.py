@@ -27,7 +27,7 @@ async def hello():
     
 @bot.command()
 async def rn():    
-    await bot.say("Right now! :rn: ")
+    await bot.say("Right now! <:440727873196916737:> ")
     
 #==============================================================================
 # @bot.listen
