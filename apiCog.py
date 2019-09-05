@@ -22,15 +22,15 @@ class apiCog:
 
         self.parameters = {"api_key": os.getenv('API_KEY')}
 
-        @commands.command()
-        async def api():
-            await bot.say("API Cog is loaded.")
+    @commands.command()
+    async def api():
+        await bot.say("API Cog is loaded.")
 
-        @commands.command()
-        async def spy(input_name: str):
-            request = requests.get('https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/' + input_name,
-                                   self.parameters)
-            await bot.say(request.text)
+    @commands.command()
+    async def spy(input_name: str):
+        request = requests.get('https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/' + input_name,
+                               self.parameters)
+        await bot.say(request.text)
 
 
 def setup(bot):
