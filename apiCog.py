@@ -34,10 +34,13 @@ class apiCog:
 
         request = requests.get('https://na1.api.riotgames.com//lol/match/v4/matchlists/by-account/' + summoner_id,
                                self.parameters)
-        matches = request.json()
+        matches = request.json()['matches']
 
         output = ''
+        i = 0
         for match in matches:
+            i += 1
+            output += 'Match ' + i + '/n'
             for item in match:
                 add_to_output = item + ': ' + match[item] + '/n'
                 output += add_to_output
