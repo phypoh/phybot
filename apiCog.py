@@ -45,6 +45,9 @@ class apiCog:
                 add_to_output = item + ': ' + str(match[item]) + '/n'
                 output += add_to_output
 
+            if i > 10:
+                break
+
         await self.bot.say(output)
 
 
