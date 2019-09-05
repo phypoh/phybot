@@ -29,7 +29,7 @@ async def hello():
 parameter = {"api_key": os.getenv('API_KEY')}
 
 
-@bot.command(pass_context=True)
+@bot.command()
 async def spy(input_name : str):
     request = requests.get('https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/' + input_name, parameter)
     await bot.say(request.text)
