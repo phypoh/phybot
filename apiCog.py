@@ -42,7 +42,7 @@ class apiCog:
             i += 1
             output += 'Match ' + str(i) + '/n'
             for item in match:
-                add_to_output = item + ': ' + match[item] + '/n'
+                add_to_output = item + ': ' + str(match[item]) + '/n'
                 output += add_to_output
 
         await self.bot.say(output)
