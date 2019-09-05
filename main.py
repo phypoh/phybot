@@ -14,8 +14,8 @@ bot = commands.Bot(command_prefix='!')
 
 @bot.event
 async def on_ready():
-    bot.load_extension("lolApiCog")
-    print("lolApiCog loaded")
+    bot.load_extension("apiCog")
+    print("apiCog loaded")
 
     print('Logged in as')
     print(bot.user.name)
