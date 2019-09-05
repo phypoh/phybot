@@ -9,6 +9,7 @@ Created on Thu Aug  9 17:35:25 2018
 import os 
 import discord
 from discord.ext import commands
+import requests
 
 bot = commands.Bot(command_prefix='!')
 
