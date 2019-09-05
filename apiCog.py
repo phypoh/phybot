@@ -24,13 +24,13 @@ class apiCog:
 
     @commands.command()
     async def api(self,):
-        await bot.say("API Cog is loaded.")
+        await self.bot.say("API Cog is loaded.")
 
     @commands.command()
     async def spy(self, input_name: str):
         request = requests.get('https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/' + input_name,
                                self.parameters)
-        await bot.say(request.text)
+        await self.bot.say(request.text)
 
 
 def setup(bot):
