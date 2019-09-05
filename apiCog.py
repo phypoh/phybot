@@ -30,7 +30,19 @@ class apiCog:
     async def spy(self, input_name: str):
         request = requests.get('https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/' + input_name,
                                self.parameters)
-        await self.bot.say(request.text)
+        summoner_id = request.json()['accountId']
+
+        request = requests.get('https://na1.api.riotgames.com//lol/match/v4/matchlists/by-account/' + summoner_id,
+                               self.parameters)
+        matches = request.json()
+
+        output = ''
+        for match in matches:
+            for item in match:
+                add_to_output = item + ': ' + match[item] + '/n'
+                output += add_to_output
+
+        await self.bot.say(output)
 
 
 def setup(bot):
