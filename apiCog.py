@@ -40,7 +40,7 @@ class apiCog:
         i = 0
         for match in matches:
             i += 1
-            output += 'Match ' + str(i) + '\n'
+            output += '\nMatch ' + str(i) + '\n'
             for item in match:
                 add_to_output = item + ': ' + str(match[item]) + '\n'
                 output += add_to_output
