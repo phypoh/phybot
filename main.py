@@ -30,8 +30,8 @@ parameter = {"api_key": os.getenv('API_KEY')}
 
 
 @bot.command()
-async def get(self, input_url):
-    request = requests.get('https://na1.api.riotgames.com/' + input_url, parameter)
+async def spy(self, input_name):
+    request = requests.get('https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/' + input_name, parameter)
     await bot.say(request.text)
 
 
