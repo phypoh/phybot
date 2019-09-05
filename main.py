@@ -26,8 +26,12 @@ async def hello():
     await bot.say("Hola. :wave: ")
 
 
-parameter = {"api_key": os.getenv('API_KEY')}
+@bot.command()
+async def add(left : int, right : int):
+    """Adds two numbers together."""
+    await bot.say(left + right)
 
+parameter = {"api_key": os.getenv('API_KEY')}
 
 @bot.command()
 async def spy(input_name : str):
