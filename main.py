@@ -23,15 +23,15 @@ async def on_ready():
 @bot.command()
 async def hello():    
     await bot.say("Hola. :wave: ")
-  
-    
-@bot.command()
-async def rn():    
-    await bot.say("Right now! :point_down:")
-    
+
+
+parameter = {"api_key": os.getenv('API_KEY')}
+
 
 @bot.command()
-async def quit():    
-    await bot.say("No. Write your paper :point_down:")
-    
+async def get(self, input_url):
+    request = requests.get('https://na1.api.riotgames.com/' + input_url, parameter)
+    await bot.say(request.text)
+
+
 bot.run(os.getenv('BOT_TOKEN'))
