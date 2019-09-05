@@ -54,5 +54,4 @@ async def _bot():
     await bot.say('Yes, the bot is cool.')
 
 
-
 bot.run(os.getenv('BOT_TOKEN'))
