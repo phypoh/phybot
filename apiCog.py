@@ -28,25 +28,31 @@ class apiCog:
 
     @commands.command()
     async def spy(self, input_name: str):
-        request = requests.get('https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/' + input_name,
+        response = requests.get('https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/' + input_name,
                                self.parameters)
-        summoner_id = request.json()['accountId']
 
-        request = requests.get('https://euw1.api.riotgames.com//lol/match/v4/matchlists/by-account/' + summoner_id,
-                               self.parameters)
-        matches = request.json()['matches']
+        if response.status_code == 200:
 
-        output = ''
-        i = 0
-        for match in matches:
-            i += 1
-            output += '\nMatch ' + str(i) + '\n'
-            for item in match:
-                add_to_output = item + ': ' + str(match[item]) + '\n'
-                output += add_to_output
+            summoner_id = response.json()['accountId']
 
-            if i > 10:
-                break
+            response = requests.get('https://euw1.api.riotgames.com//lol/match/v4/matchlists/by-account/' + summoner_id,
+                                   self.parameters)
+            matches = response.json()['matches']
+
+            output = ''
+            i = 0
+            for match in matches:
+                i += 1
+                output += '\nMatch ' + str(i) + '\n'
+                for item in match:
+                    add_to_output = item + ': ' + str(match[item]) + '\n'
+                    output += add_to_output
+
+                if i > 10:
+                    break
+
+        else:
+            output = "Error code " + str(response.status_code)
 
         await self.bot.say(output)
 
@@ -54,13 +60,13 @@ class apiCog:
     @commands.command()
     async def spyInt(self, input_name: str, region: str):
         region = region.lower()
-        request = requests.get('https://' + region + '1.api.riotgames.com/lol/summoner/v4/summoners/by-name/' + input_name,
+        response = requests.get('https://' + region + '1.api.riotgames.com/lol/summoner/v4/summoners/by-name/' + input_name,
                                self.parameters)
-        summoner_id = request.json()['accountId']
+        summoner_id = response.json()['accountId']
 
-        request = requests.get('https://' + region + '1.api.riotgames.com//lol/match/v4/matchlists/by-account/' + summoner_id,
+        response = requests.get('https://' + region + '1.api.riotgames.com//lol/match/v4/matchlists/by-account/' + summoner_id,
                                self.parameters)
-        matches = request.json()['matches']
+        matches = response.json()['matches']
 
         output = ''
         i = 0
